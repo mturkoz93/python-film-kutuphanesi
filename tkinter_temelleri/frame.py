@@ -6,7 +6,7 @@ from tkinter import Frame, Button
 
 # ana pencere
 window = tk.Tk()
-window.title('Tkinter Temelleri - Label - Entry')
+window.title('Tkinter Temelleri - Frame')
 window.geometry('600x400')
 
 # Frame Widget
