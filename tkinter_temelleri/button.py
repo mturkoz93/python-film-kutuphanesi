@@ -3,7 +3,7 @@ import tkinter as tk
 
 # ana pencere
 window = tk.Tk()
-window.title('Tkinter Temelleri')
+window.title('Tkinter Temelleri - Button')
 window.geometry('600x400')
 
 # Button Widget
