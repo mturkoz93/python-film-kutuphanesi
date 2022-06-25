@@ -1,4 +1,5 @@
 import tkinter as tk
+from sayfa import AnaSayfa
 
 class SagFrame:
     """
@@ -25,7 +26,7 @@ class SagFrame:
     def frame_icerigi(self, sayfa_adi='anaSayfa'):
         if(sayfa_adi == 'anaSayfa'):
             #ana sayfayı çağır
-            pass
+            AnaSayfa(self.frame, SagFrame.fon_rengi)
         elif sayfa_adi == 'filmListesi':
             #film listesi
             pass
