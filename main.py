@@ -6,7 +6,7 @@ Sayfalar:
     3- Film Detayı
 """
 
-from widget import Window, SolFrame
+from widget import Window, SolFrame, SagFrame
 
 if __name__ == '__main__':
     pencere = Window('Film Kütüphanesi')
@@ -20,6 +20,7 @@ if __name__ == '__main__':
 
 
     # Sağ Frame
+    sag_frame = SagFrame(pencere.window, 'sagFrame')
 
 
     # penceremizi başlat -> mainloop()
