@@ -3,6 +3,7 @@ from data.colors import COLORS
 from data.menus import MENU
 
 from widget.button.Button import Button
+from widget.sag_frame.SagFrame import SagFrame
 
 
 class SolFrame:
@@ -27,6 +28,14 @@ class SolFrame:
     # click edilecek butondan gelecek event
     def handle_click(self, event):
         self.buton_renklerini_yonet(event)
+        sayfa_adi = str(event.widget).split('.')[2]
+
+        # sağ frame'i al
+        sgFrame = self.master.children['sagFrame']
+
+        # sağ frame içerisindeki tüm çocukları destroy et
+        SagFrame.destroy_children(sgFrame)
+        SagFrame.frame_icerigi(sgFrame, sayfa_adi)
 
 
 
