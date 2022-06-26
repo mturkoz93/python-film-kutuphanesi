@@ -4,6 +4,7 @@ from tkinter import ttk
 from data.colors import COLORS
 import csv
 from PIL import Image, ImageTk
+from sayfa.film_detayi.FilmDetayi import FilmDetayi
 
 class FilmListesi:
     """
@@ -88,7 +89,7 @@ class FilmListesi:
         for i, film in enumerate(self.filmler):
             if (FilmListesi.sayfa_no - 1) * FilmListesi.sayfa_basina_adet <= i < FilmListesi.sayfa_no * FilmListesi.sayfa_basina_adet:
                 for j, key in enumerate(FilmListesi.sutunlar):
-                    name = 'table_row' + str(i) + str(j) + '_' + film['imdbID']
+                    name = 'table_row_' + str(i) + str(j) + '_' + film['imdbID']
                     if j == 0:
                         # resim bastır
                         self.render_image(film, i, j, name)
@@ -114,6 +115,8 @@ class FilmListesi:
     def write_label(self, film, i, j, key, name):
         lbl = tk.Label(self.frame, name=name, text=str(film[key]), height=4, fg='black', font=('Arial', 10, 'bold'),
             cursor='hand2')
+
+        lbl.bind('<Button-1>', self.film_click)
         
         if key == 'Id':
             lbl.configure(width=4)
@@ -157,3 +160,31 @@ class FilmListesi:
         for child in master.children.copy():
             if 'table_row' in child:
                 master.children[child].destroy()
+
+    def film_click(self, event):
+        imdbID = str(event.widget).split('_')[3]
+
+        # önce sağ frame için düzenle
+        self.sag_frame_duzenle(event, imdbID)
+
+        # sol frame'i düzenle
+        self.sol_frame_duzenle(event)
+
+    def sag_frame_duzenle(self, event, imdbID):
+        sagFrame = event.widget.master
+        for child in sagFrame.winfo_children():
+            child.destroy()
+
+        # film detayı yaz
+        FilmDetayi(sagFrame, 'orange', imdbID=imdbID, filmler=self.filmler)
+
+    def sol_frame_duzenle(self, event):
+        root = event.widget.master.master.master
+        for child in root.winfo_children():
+            if str(child) == '.solFrame':
+                for ch in child.winfo_children():
+                    if str(ch) == '.solFrame.filmDetayi':
+                        ch.configure(bg=COLORS.TURUNCU, fg=COLORS.BEYAZ)
+                    else:
+                        ch.configure(bg=COLORS.SIYAH, fg=COLORS.TURUNCU)
+
