@@ -10,6 +10,9 @@ class FilmListesi:
     film listesi frame'dir
     """
 
+    sayfa_no = 1
+    sayfa_basina_adet = 10
+    toplam_sayfa_sayisi = 0
     sutunlar = ['imdbID', 'Id', 'Title', 'Year', 'imdbRating', 'imdbVotes']
 
     def __init__(self, master, fon_rengi, relief=tk.SUNKEN, side=tk.LEFT):
@@ -43,10 +46,15 @@ class FilmListesi:
             film_dict = csv.DictReader(dosya, delimiter=';')
             for film in film_dict:
                 self.filmler.append(film)
+        
+        # toplam sayfa sayısı hesapla
+        FilmListesi.toplam_sayfa_sayisi = len(self.filmler) // FilmListesi.sayfa_basina_adet + 1
+
 
     def sayfa_olustur(self):
         self.add_title_row()
         self.tablo_olustur()
+        self.combo_box_olustur()
 
     def add_title_row(self):
         for j, sutun in enumerate(FilmListesi.sutunlar):
@@ -78,14 +86,17 @@ class FilmListesi:
 
     def tablo_olustur(self):
         for i, film in enumerate(self.filmler):
-            for j, key in enumerate(FilmListesi.sutunlar):
-                name = 'table_row' + str(i) + str(j) + '_' + film['imdbID']
-                if j == 0:
-                    # resim bastır
-                    self.render_image(film, i, j, name)
-                else:
-                    # yazı bastır
-                    self.write_label(film, i, j, key, name)
+            if (FilmListesi.sayfa_no - 1) * FilmListesi.sayfa_basina_adet <= i < FilmListesi.sayfa_no * FilmListesi.sayfa_basina_adet:
+                for j, key in enumerate(FilmListesi.sutunlar):
+                    name = 'table_row' + str(i) + str(j) + '_' + film['imdbID']
+                    if j == 0:
+                        # resim bastır
+                        self.render_image(film, i, j, name)
+                    else:
+                        # yazı bastır
+                        self.write_label(film, i, j, key, name)
+
+            self.i = i + 3
 
     def render_image(self, film, i, j, name):
         try:
@@ -114,8 +125,35 @@ class FilmListesi:
             lbl.configure(width=8)
         elif key == 'imdbVotes':
             lbl.configure(width=12)
+
+        self.fill_bg(lbl, i)
         
         if key == 'imdbVotes':
             lbl.grid(row=i + 2, column=j, sticky='we', padx=(0, 10))
         else:
             lbl.grid(row=i + 2, column=j, sticky='we', padx=(0, 1))
+
+    def fill_bg(self, widget, i):
+        if i % 2 == 1:
+            widget.configure(bg=COLORS.LIST_SATIR_TEK)
+        else:
+            widget.configure(bg=COLORS.LIST_SATIR_CIFT)
+
+    def combo_box_selected_event(self, event):
+        FilmListesi.sayfa_no = int(event.widget.get())
+        self.tablo_bosalt(event)
+        self.tablo_olustur()
+
+
+    def combo_box_olustur(self):
+        values = list(range(1, FilmListesi.toplam_sayfa_sayisi))
+        sayfalar = ttk.Combobox(self.frame, width=4, values=values)
+        sayfalar.current(FilmListesi.sayfa_no - 1) # sıfırınca indeksten başlaması için
+        sayfalar.bind('<<ComboboxSelected>>', self.combo_box_selected_event)
+        sayfalar.grid(row=self.i, column=2, pady=(15, 0))
+
+    def tablo_bosalt(self, event):
+        master = event.widget.master
+        for child in master.children.copy():
+            if 'table_row' in child:
+                master.children[child].destroy()

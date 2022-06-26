@@ -47,13 +47,16 @@ class SolFrame:
             else:
                 button = Button(self.frame, menu_key, menu_text, COLORS.TURUNCU, COLORS.SIYAH, 18, 2, self.handle_click)
 
+                if menu_key == 'anaSayfa':
+                    SolFrame.secili_button_rengi(button.button)
+
     def buton_renklerini_yonet(self, event):
         # tıklanan button : event.widget
         # hepsini siyah yap
         for child in event.widget.master.winfo_children():
             child.configure(bg=COLORS.SIYAH, fg=COLORS.TURUNCU)
         # seçili olanı turuncu yap
-        self.secili_button_rengi(event.widget)
+        SolFrame.secili_button_rengi(event.widget)
 
-    def secili_button_rengi(self, button):
+    def secili_button_rengi(button):
         button.configure(bg=COLORS.TURUNCU, fg=COLORS.BEYAZ)
