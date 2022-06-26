@@ -1,5 +1,3 @@
-from struct import pack
-from textwrap import fill
 import tkinter as tk
 from data.colors import COLORS
 from PIL import Image, ImageTk

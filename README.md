@@ -1,9 +1,17 @@
+# About App
+Python Version: 3.10.4
+Pip: 22.1.2
 
-main.py dosyasını "python main.py" şekkinde çalıştırabilirsin.
+## Run App
+`python main.py` or `python -B main.py`
 
-eğer __pycache__ dosyalarının çalıştırma esnasında oluşmasını istemiyorsan
-"python -B main.py" şeklinde çalıştırabilirsin.
+# Install Libraries
+(Pillow)
+```
+pip install Pillow
 
-
-# Libraries
--   pip install Pillow
+```
+# Pictures
+<img src="./mockup/HomePage.png"></img>
+<img src="./mockup/FilmList.png"></img>
+<img src="./mockup/FilmDetail.png"></img>
