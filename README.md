@@ -12,6 +12,7 @@ pip install Pillow
 
 ```
 # Pictures
-<img src="./mockup/HomePage.png"></img>
-<img src="./mockup/FilmList.png"></img>
-<img src="./mockup/FilmDetail.png"></img>
+![HomePage](https://user-images.githubusercontent.com/14320133/175833790-dc9b6958-3bc5-4458-80e2-ee09f6a14d28.PNG)
+![FilmList](https://user-images.githubusercontent.com/14320133/175833803-1393f37d-e744-4be4-a20f-84be01700bf6.PNG)
+![FilmDetail](https://user-images.githubusercontent.com/14320133/175833808-81588fa7-6555-4fd0-bd41-9a5c4c795c6b.PNG)
+
