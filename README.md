@@ -1,7 +1,7 @@
 # About App
-Python Version: 3.10.4
+<b>Python Version</b>: 3.10.4
 
-Pip: 22.1.2
+<b>Pip</b>: 22.1.2
 
 ## Run App
 `python main.py` or `python -B main.py`
