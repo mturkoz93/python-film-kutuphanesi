@@ -2,46 +2,46 @@ import tkinter as tk
 from data.colors import COLORS
 from PIL import Image, ImageTk
 
-class FilmDetayi:
+class MovieDetail:
     """
     film detay frame'dir.
     """
 
-    def __init__(self, window, fon_rengi, imdbID=None, filmler=[], relief=tk.SUNKEN, side=tk.LEFT):
+    def __init__(self, window, bg_color, imdbID=None, movies=[], relief=tk.SUNKEN, side=tk.LEFT):
         self.frame = tk.Frame(
             master=window,
-            name='filmDetayi',
+            name='movieDetail',
             relief=relief,
-            bg=fon_rengi
+            bg=bg_color
         )
         self.side = side
         self.imdbID = imdbID
-        self.filmler = filmler
-        self.frame_ekle()
+        self.movies = movies
+        self.add_frame()
 
-    def frame_ekle(self):
-        self.frame_icerigi()
-        self.frame_basligi('Film Detayı')
+    def add_frame(self):
+        self.frame_content()
+        self.frame_title('Movie Detail')
         self.frame.pack(side=self.side, fill=tk.BOTH, expand=True)
 
-    def frame_basligi(self, baslik):
+    def frame_title(self, title):
         if self.imdbID != None:
             bsl = tk.Label(
                 self.frame, text=self.film['Title'], height=3,
-                bg=COLORS.SIYAH, fg=COLORS.BEYAZ, font=('Arial', 12, 'bold')
+                bg=COLORS.BLACK, fg=COLORS.WHITE, font=('Arial', 12, 'bold')
             )
             
             bsl.grid(row=0, column=0, columnspan=8, padx=1, pady=(0,8), sticky='we')
         else:
             bsl = tk.Label(
-                self.frame, text=baslik, height=3,
-                bg=COLORS.SIYAH, fg=COLORS.BEYAZ, font=('Arial', 12, 'bold')
+                self.frame, text=title, height=3,
+                bg=COLORS.BLACK, fg=COLORS.WHITE, font=('Arial', 12, 'bold')
             )
             bsl.pack(fill=tk.X, padx=(1, 0))
 
         
 
-    def frame_icerigi(self):
+    def frame_content(self):
         if self.imdbID != None:
             self.render_image()
             self.get_film()
@@ -64,7 +64,7 @@ class FilmDetayi:
             img_label.grid(row=1, column=0, columnspan=2, pady=(0, 10))
     
     def get_film(self):
-        for f in self.filmler:
+        for f in self.movies:
             if f['imdbID'] == self.imdbID:
                 self.film = f
                 break
@@ -78,9 +78,9 @@ class FilmDetayi:
 
     def fill_bg(self, widget, i):
         if i % 2 == 1:
-            widget.configure(bg=COLORS.LIST_SATIR_TEK)
+            widget.configure(bg=COLORS.LIST_ROW_ODD)
         else:
-            widget.configure(bg=COLORS.LIST_SATIR_CIFT)
+            widget.configure(bg=COLORS.LIST_ROW_EVEN)
 
     def render_values(self):
         for i, value in enumerate(self.film.values()):

@@ -20,15 +20,15 @@ class Button:
             bg=bg,
             width=en,
             height=boy,
-            activebackground=COLORS.TURUNCU
+            activebackground=COLORS.ORANGE
         )
         self.padx = padx
         self.pady = pady
         self.side = side
-        self.button_ekle()
-        self.event_bagla(handle_click)
+        self.add_button()
+        self.bind_event(handle_click)
 
-    def button_ekle(self):
+    def add_button(self):
         self.button.configure(font=('Arial', 12))
         self.button.pack(
             padx=self.padx,
@@ -37,5 +37,5 @@ class Button:
         )
 
 
-    def event_bagla(self, handle_click):
+    def bind_event(self, handle_click):
         self.button.bind('<Button-1>', handle_click) # sol menu click

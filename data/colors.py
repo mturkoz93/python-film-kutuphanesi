@@ -4,10 +4,10 @@ class COLORS:
     """
 
     # Class attributes
-    SIYAH = '#121212'
-    GRI = '#686868'
-    TURUNCU = 'orange'
-    BEYAZ = '#ffffff'
-    ACIK_MAVI = '#5799ef'
-    LIST_SATIR_TEK = '#f6f6f5'
-    LIST_SATIR_CIFT = '#fbfbfb'
+    BLACK = '#121212'
+    GRAY = '#686868'
+    ORANGE = 'orange'
+    WHITE = '#ffffff'
+    LIGHT_BLUE = '#5799ef'
+    LIST_ROW_ODD = '#f6f6f5'
+    LIST_ROW_EVEN = '#fbfbfb'

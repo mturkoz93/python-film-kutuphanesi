@@ -1,7 +1,7 @@
-class GEOMETRI:
+class GEOMETRY:
     """
-    geometri ile ilgili sabitleri tutar
+    GEOMETRY ile ilgili sabitleri tutar
     """
 
-    ANA_SAYFA_GENISLIK = 960
-    ANA_SAYFA_YUKSEKLIK = 880
+    HOME_PAGE_WIDTH = 960
+    HOME_PAGE_HEIGHT = 880

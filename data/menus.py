@@ -1,6 +1,6 @@
 MENU = {
-    'anaSayfa': 'Ana Sayfa',
-    'filmListesi': 'Film Listesi',
-    'filmDetayi': 'Film Detayı',
-    'uygulamaHakkinda': 'Uygulama Hakkında'
+    'homePage': 'Home Page',
+    'movieList': 'Movie List',
+    'movieDetail': 'Movie Detail',
+    'aboutApp': 'About App'
 }

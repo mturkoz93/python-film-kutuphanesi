@@ -6,33 +6,33 @@ class About:
     about app
     """
 
-    def __init__(self, window, fon_rengi, relief=tk.SUNKEN, side=tk.LEFT):
+    def __init__(self, window, bg_color, relief=tk.SUNKEN, side=tk.LEFT):
         self.frame = tk.Frame(
             master=window,
-            name='uygulamaHakkinda',
+            name='aboutApp',
             relief=relief,
-            bg=fon_rengi
+            bg=bg_color
         )
         self.side = side
 
-        self.frame_ekle()
+        self.add_frame()
 
-    def frame_ekle(self):
-        self.frame_icerigi()
-        self.frame_basligi('About App')
+    def add_frame(self):
+        self.frame_content()
+        self.frame_title('About App')
         self.frame.pack(side=self.side, fill=tk.BOTH, expand=True)
 
-    def frame_basligi(self, baslik):
+    def frame_title(self, title):
         bsl = tk.Label(
-            self.frame, text=baslik, height=3,
-            bg=COLORS.SIYAH, fg=COLORS.BEYAZ, font=('Arial', 12, 'bold')
+            self.frame, text=title, height=3,
+            bg=COLORS.BLACK, fg=COLORS.WHITE, font=('Arial', 12, 'bold')
         )
         bsl.pack(fill=tk.X, padx=(1, 0))
 
-    def frame_icerigi(self):
+    def frame_content(self):
         about = tk.Label(self.frame,
                         text='IMDB Movie Library',
                         font=('Helvetica', 18, 'bold'),
                         bg='orange'
                         )
-        about.place(x=335, y=90)
+        about.place(x=305, y=90)

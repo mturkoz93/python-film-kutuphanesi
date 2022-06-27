@@ -9,7 +9,7 @@ GUI (Graphical User Interface) oluşturma aracı
 
 import tkinter as tk
 
-# ana sayfa
+# ana page
 m = tk.Tk()
 
 #

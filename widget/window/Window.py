@@ -1,6 +1,6 @@
 import tkinter as tk
 from data.colors import COLORS
-from data.geometry import GEOMETRI
+from data.geometry import GEOMETRY
 
 class Window:
     """
@@ -12,13 +12,13 @@ class Window:
     def __init__(self, title):
         self.window = tk.Tk()
         self.window.title(title)
-        self.window.configure(bg=COLORS.SIYAH)
-        self.yukseklilk_ayarla()
+        self.window.configure(bg=COLORS.BLACK)
+        self.set_height()
 
 
     def start_window(self):
         self.window.mainloop()
 
-    def yukseklilk_ayarla(self):
-        w, h = GEOMETRI.ANA_SAYFA_GENISLIK, GEOMETRI.ANA_SAYFA_YUKSEKLIK
+    def set_height(self):
+        w, h = GEOMETRY.HOME_PAGE_WIDTH, GEOMETRY.HOME_PAGE_HEIGHT
         self.window.geometry('%dx%d' % (w, h))

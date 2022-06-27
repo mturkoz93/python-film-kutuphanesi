@@ -4,6 +4,6 @@ __init__.py içinde import ederek merkezi olarak tutarız.
 """
 
 from .window.Window import Window
-from .sol_frame.SolFrame import SolFrame
-from .sag_frame.SagFrame import SagFrame
+from .left_frame.LeftFrame import LeftFrame
+from .right_frame.RightFrame import RightFrame
 from .button.Button import Button
