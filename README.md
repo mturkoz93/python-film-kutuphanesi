@@ -13,7 +13,6 @@ pip install Pillow
 
 ```
 # Pictures
-![HomePage](https://user-images.githubusercontent.com/14320133/175833790-dc9b6958-3bc5-4458-80e2-ee09f6a14d28.PNG)
-![FilmList](https://user-images.githubusercontent.com/14320133/175833803-1393f37d-e744-4be4-a20f-84be01700bf6.PNG)
-![FilmDetail](https://user-images.githubusercontent.com/14320133/175833808-81588fa7-6555-4fd0-bd41-9a5c4c795c6b.PNG)
-
+![image](https://user-images.githubusercontent.com/14320133/175983356-346fc604-faa3-4543-8b83-b11d19fd18bb.png)
+![image](https://user-images.githubusercontent.com/14320133/175983427-b94836d9-265a-4a1a-82a0-fa10e5fd225d.png)
+![image](https://user-images.githubusercontent.com/14320133/175983492-6026c43f-0e73-4dbd-9a0f-2a133c1a99ba.png)
