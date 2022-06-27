@@ -1,5 +1,5 @@
 import tkinter as tk
-from sayfa import AnaSayfa, FilmListesi, FilmDetayi
+from sayfa import AnaSayfa, FilmListesi, FilmDetayi, About
 # from sayfa.film_listesi.FilmListesi import FilmListesi
 
 class SagFrame:
@@ -39,6 +39,8 @@ class SagFrame:
             elif sayfa_adi == 'filmDetayi':
                 #film detay sayfası
                 FilmDetayi(gelenFrame, SagFrame.fon_rengi)
+            elif sayfa_adi == 'uygulamaHakkinda':
+                About(gelenFrame, SagFrame.fon_rengi)
 
     def destroy_children(frame):
         # frame içindeki tüm çocukları sil
