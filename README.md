@@ -1,4 +1,4 @@
-# About App
+# Requirements
 <b>Python Version</b>: 3.10.4
 
 <b>Pip Version</b>: 22.1.2
